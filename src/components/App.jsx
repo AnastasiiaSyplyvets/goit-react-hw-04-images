@@ -64,6 +64,7 @@ export const App = () => {
   useEffect(() => {
     console.log('searchQuiry', searchQuiry);
     fetchRequest();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuiry]);
 
   const toggleModal = image => {
@@ -76,6 +77,7 @@ export const App = () => {
 
   useEffect(() => {
     fetchRequest(page);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const handleRequest = value => {
