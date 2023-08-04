@@ -65,7 +65,7 @@ export const App = () => {
     console.log('searchQuiry', searchQuiry);
     fetchRequest();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuiry]);
+  }, [searchQuiry, page]);
 
   const toggleModal = image => {
     setSelectedImage(image);
@@ -75,10 +75,10 @@ export const App = () => {
     setPage(page + 1);
   };
 
-  useEffect(() => {
-    fetchRequest(page);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  // useEffect(() => {
+  //   fetchRequest(page);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [page]);
 
   const handleRequest = value => {
     setLoading(true);
