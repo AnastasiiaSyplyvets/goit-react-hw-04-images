@@ -13,6 +13,7 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
@@ -128,8 +129,8 @@ img {
   max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 16px;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding: 0;
   list-style: none;
   margin-left: auto;
@@ -183,27 +184,39 @@ img {
 * Стили компонента Buton (Load more)
 */
 .Button {
-  padding: 8px 16px;
-  border-radius: 2px;
-  background-color: #3f51b5;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  text-align: center;
+  box-shadow: 0px 10px 14px -7px #276873;
+  background: linear-gradient(to bottom, #37479e 5%, #408c99 100%);
+  background-color: #37479e;
+  border-radius: 8px;
   display: inline-block;
-  color: #fff;
-  border: 0;
-  text-decoration: none;
   cursor: pointer;
-  font-family: inherit;
-  font-size: 18px;
-  line-height: 24px;
-  font-style: normal;
-  font-weight: 500;
-  min-width: 180px;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 13px 32px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #3d768a;
+
+  margin-left: 45%;
+
+  position: absolute;
 }
 
-.Button:hover,
-.Button:focus {
-  background-color: #303f9f;
+.Button:hover {
+  background: linear-gradient(to bottom, #408c99 5%, #37479e 100%);
+  background-color: #408c99;
+}
+.Button:active {
+  position: relative;
+  top: 1px;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
 }

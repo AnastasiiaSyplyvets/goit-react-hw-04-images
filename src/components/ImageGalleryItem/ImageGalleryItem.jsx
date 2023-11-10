@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 
 export const ImageGalleryItem = ({ id, smallImg, onClick }) => {
   return (
-    <li key={id} className="ImageGalleryItem">
+    <li className="ImageGalleryItem">
       <img
+        key={id}
         onClick={onClick}
         className="ImageGalleryItem-image"
         src={smallImg}

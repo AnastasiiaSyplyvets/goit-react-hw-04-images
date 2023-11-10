@@ -18,17 +18,17 @@ export const App = () => {
   const [showButton, setShowButton] = useState(false);
   const [page, setPage] = useState(1);
 
-  const fetchRequest = () => {
+  useEffect(() => {
     if (searchQuiry === '') {
       return;
     }
 
     setShowButton(false);
+    setLoading(true);
 
     api
       .FetchImageApi(searchQuiry, page)
       .then(data => {
-        setLoading(true);
         if (data.total === 0) {
           setShowButton(false);
           toast.error('No results found!', {
@@ -62,14 +62,21 @@ export const App = () => {
           setShowButton(true);
         }
       })
-      .catch(err => console.log(err))
+      .catch(err =>
+        toast.error('Ooop,something went wrong :(. Please reload the page.', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        })
+      )
       .finally(() => {
         setLoading(false);
       });
-  };
-
-  useEffect(() => {
-    fetchRequest();
   }, [searchQuiry, page]);
 
   const toggleModal = image => {
@@ -81,7 +88,6 @@ export const App = () => {
   };
 
   const handleRequest = value => {
-    // setLoading(true);
     setSearchQuiry(value);
     setImages([]);
     setPage(1);
